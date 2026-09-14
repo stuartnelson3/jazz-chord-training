@@ -59,6 +59,17 @@ the next round, not the round in progress.
 Each checkbox group needs at least one checked box. The app blocks a
 change that would leave a group empty.
 
+## Type checking
+
+The source files are plain JavaScript with JSDoc type comments. Nothing
+compiles them, and the browser loads them as-is. To check the types,
+install `typescript` and run:
+
+```
+npm install
+npm run typecheck
+```
+
 ## Project structure
 
 - `index.html`: the page shell.
