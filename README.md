@@ -1,4 +1,4 @@
-# Jazz Chord Ear Trainer
+# Jazz Flash Chords
 
 This is a browser app to practice jazz chord arpeggios by ear on saxophone.
 The app shows a chord symbol. You play its four notes into the microphone,

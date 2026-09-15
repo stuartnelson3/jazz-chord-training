@@ -1,8 +1,8 @@
 {
-  "name": "jazz-chord-training",
+  "name": "jazz-flash-chords",
   "version": "1.0.0",
   "private": true,
-  "description": "Browser app for jazz chord ear training on saxophone",
+  "description": "Jazz Flash Chords: a browser app for jazz chord ear training on saxophone",
   "scripts": {
     "typecheck": "tsc --noEmit"
   },
