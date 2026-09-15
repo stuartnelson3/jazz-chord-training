@@ -9,6 +9,10 @@ By default, each chord also adds a 9th, natural or altered, on top of its
 plain four-note shape (root, 5th, 7th, and a 3rd — or a 4th for 7sus4).
 Turn that off in Settings to practice the plain four-note chords instead.
 
+A root with two common spellings shows both, for example "Bb/A#7". Only the
+root gets this treatment. The tone indicators and the Settings panel keep
+one name each.
+
 The app needs no server code and no build step. It runs as static files in
 a browser.
 
