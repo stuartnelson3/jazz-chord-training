@@ -61,9 +61,9 @@ Open the **Settings** panel to change these options. A change applies to
 the next round, not the round in progress.
 
 - **Timer**: seconds allowed per round.
-- **Transposition**: the instrument key for the on-screen chord symbol
-  (Concert, Alto Sax, or Tenor Sax). The app always works in concert
-  pitch. This setting changes only the symbol you see on screen.
+- **Transposition**: the key for the on-screen chord symbol (C, Bb, or
+  Eb). Pick whichever matches your instrument. The app always works in
+  concert pitch. This setting changes only the symbol you see on screen.
 - **Auto-advance**: after a pause, the app starts the next round on its
   own. Turn it off to control the pace yourself.
 - **Auto-advance delay**: how long that pause lasts, in seconds. 0 means
