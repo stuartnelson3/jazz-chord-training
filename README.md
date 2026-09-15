@@ -1,9 +1,10 @@
 # Jazz Flash Chords
 
 This is a browser app to practice jazz chord arpeggios by ear on saxophone.
-The app shows a chord symbol. You play its four notes into the microphone,
-in any order and any octave. The app listens through pitch detection. It
-marks each note as a hit or a miss.
+The app shows a chord symbol. Every chord has five notes: root, 3rd, 5th,
+7th, and a 9th, natural or altered depending on the quality. You play them
+into the microphone, in any order and any octave. The app listens through
+pitch detection. It marks each note as a hit or a miss.
 
 The app needs no server code and no build step. It runs as static files in
 a browser.
@@ -28,11 +29,11 @@ a browser.
 ## How a round works
 
 The app shows a chord symbol. It gives you a one-second preview before it
-starts to listen. Then the timer starts. The app listens for your four
+starts to listen. Then the timer starts. The app listens for your five
 notes.
 
 Play each note of the chord in any order and any octave. Each correct note
-lights up its tone indicator. A round passes when you play all four notes
+lights up its tone indicator. A round passes when you play all five notes
 before the timer runs out. A round fails when the timer runs out first.
 
 After a round ends, do one of the following to move to a new chord:
@@ -53,7 +54,9 @@ the next round, not the round in progress.
 - **Auto-advance**: after a short pause, the app starts the next round on
   its own. Turn it off to control the pace yourself.
 - **Chord qualities**: which seventh-chord types feed the random pool
-  (maj7, dom7, m7, m7b5, 7sus4).
+  (maj7, dom7, m7, m7b5, 7sus4). Each round adds a 9th on top. maj7, m7,
+  and m7b5 always get a natural 9th. dom7 picks at random from 9, b9, or
+  #9. 7sus4 picks at random from 9 or b9.
 - **Roots**: which root notes feed the random pool.
 
 Each checkbox group needs at least one checked box. The app blocks a
@@ -102,7 +105,6 @@ These stretch goals are not built. See `spec.md` for the full list.
 - Guide-tone mode (3rd and 7th only)
 - Progression mode (ii–V–I, blues changes)
 - Required note order or direction
-- Extensions and altered tones
 - On-screen cents display
 - Register-specific practice
 - Saved stats across sessions
