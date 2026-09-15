@@ -1,10 +1,13 @@
 # Jazz Flash Chords
 
 This is a browser app to practice jazz chord arpeggios by ear on saxophone.
-The app shows a chord symbol. Every chord has five notes: root, 3rd, 5th,
-7th, and a 9th, natural or altered depending on the quality. You play them
-into the microphone, in any order and any octave. The app listens through
-pitch detection. It marks each note as a hit or a miss.
+The app shows a chord symbol. You play its notes into the microphone, in
+any order and any octave. The app listens through pitch detection. It
+marks each note as a hit or a miss.
+
+By default, each chord also adds a 9th, natural or altered, on top of the
+plain root, 3rd, 5th, and 7th. Turn that off in Settings to practice the
+plain four-note chords instead.
 
 The app needs no server code and no build step. It runs as static files in
 a browser.
@@ -29,12 +32,13 @@ a browser.
 ## How a round works
 
 The app shows a chord symbol. It gives you a one-second preview before it
-starts to listen. Then the timer starts. The app listens for your five
-notes.
+starts to listen. Then the timer starts. The app listens for your chord
+tones.
 
 Play each note of the chord in any order and any octave. Each correct note
-lights up its tone indicator. A round passes when you play all five notes
-before the timer runs out. A round fails when the timer runs out first.
+lights up its tone indicator. A round passes when you play every chord
+tone before the timer runs out. A round fails when the timer runs out
+first.
 
 A wrong note does not fail the round on its own, and it does not undo a
 tone you already hit. But it still shows up if you hold one long enough
@@ -58,10 +62,13 @@ the next round, not the round in progress.
   pitch. This setting changes only the symbol you see on screen.
 - **Auto-advance**: after a short pause, the app starts the next round on
   its own. Turn it off to control the pace yourself.
+- **Include extensions/alterations**: on by default. Adds a 9th to every
+  chord, on top of the plain root, 3rd, 5th, and 7th. Turn it off to
+  practice plain four-note chords only.
 - **Chord qualities**: which seventh-chord types feed the random pool
-  (maj7, dom7, m7, m7b5, 7sus4). Each round adds a 9th on top. maj7, m7,
-  and m7b5 always get a natural 9th. dom7 picks at random from 9, b9, or
-  #9. 7sus4 picks at random from 9 or b9.
+  (maj7, dom7, m7, m7b5, 7sus4). When extensions are on: maj7, m7, and
+  m7b5 always get a natural 9th; dom7 picks at random from 9, b9, or #9;
+  7sus4 picks at random from 9 or b9.
 - **Roots**: which root notes feed the random pool.
 
 Each checkbox group needs at least one checked box. The app blocks a
