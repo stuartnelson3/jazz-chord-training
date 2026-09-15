@@ -36,6 +36,11 @@ Play each note of the chord in any order and any octave. Each correct note
 lights up its tone indicator. A round passes when you play all five notes
 before the timer runs out. A round fails when the timer runs out first.
 
+A wrong note does not fail the round on its own, and it does not undo a
+tone you already hit. But it still shows up if you hold one long enough
+for the app to register it. The result screen then adds a separate note,
+apart from pass or fail: you fished for it.
+
 After a round ends, do one of the following to move to a new chord:
 
 - Press space.
