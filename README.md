@@ -64,8 +64,11 @@ the next round, not the round in progress.
 - **Transposition**: the instrument key for the on-screen chord symbol
   (Concert, Alto Sax, or Tenor Sax). The app always works in concert
   pitch. This setting changes only the symbol you see on screen.
-- **Auto-advance**: after a short pause, the app starts the next round on
-  its own. Turn it off to control the pace yourself.
+- **Auto-advance**: after a pause, the app starts the next round on its
+  own. Turn it off to control the pace yourself.
+- **Auto-advance delay**: how long that pause lasts, in seconds. 0 means
+  the next chord appears right away. This one applies as soon as you
+  change it, even mid-pause, not just on the next round.
 - **Include extensions/alterations**: on by default. Adds a 9th to every
   chord, on top of the plain root, 3rd, 5th, and 7th. Turn it off to
   practice plain four-note chords only.
