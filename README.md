@@ -49,9 +49,11 @@ tone you already hit. But it still shows up if you hold one long enough
 for the app to register it. The result screen then adds a separate note,
 apart from pass or fail: you fished for it.
 
-After a round ends, do one of the following to move to a new chord:
+Press space at any time to skip to a new chord. This works during a
+round or after it ends.
 
-- Press space.
+After a round ends, you can also:
+
 - Click **Next chord**.
 - Turn on auto-advance in Settings.
 
