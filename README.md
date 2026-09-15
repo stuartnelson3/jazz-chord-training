@@ -29,6 +29,10 @@ a browser.
 3. Click **Start**.
 4. Allow microphone access when your browser asks.
 
+Start turns into a red **Stop** button once the app is running. Click it
+to end the session: this releases the microphone and returns you to the
+start screen. Click Start again to begin a fresh session.
+
 ## How a round works
 
 The app shows a chord symbol. It gives you a one-second preview before it
@@ -65,6 +69,11 @@ the next round, not the round in progress.
 - **Include extensions/alterations**: on by default. Adds a 9th to every
   chord, on top of the plain root, 3rd, 5th, and 7th. Turn it off to
   practice plain four-note chords only.
+- **Elimination mode**: off by default. Turns on a fixed pool of every
+  root/quality combination in your current settings. Passing a round
+  removes that combination from the pool. Failing does not. The pool
+  refills once you clear it. While it is on, the game screen shows how
+  many combinations are left.
 - **Chord qualities**: which seventh-chord types feed the random pool
   (maj7, dom7, m7, m7b5, 7sus4). When extensions are on: maj7, m7, and
   m7b5 always get a natural 9th; dom7 picks at random from 9, b9, or #9;
