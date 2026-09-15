@@ -5,9 +5,9 @@ The app shows a chord symbol. You play its notes into the microphone, in
 any order and any octave. The app listens through pitch detection. It
 marks each note as a hit or a miss.
 
-By default, each chord also adds a 9th, natural or altered, on top of the
-plain root, 3rd, 5th, and 7th. Turn that off in Settings to practice the
-plain four-note chords instead.
+By default, each chord also adds a 9th, natural or altered, on top of its
+plain four-note shape (root, 5th, 7th, and a 3rd — or a 4th for 7sus4).
+Turn that off in Settings to practice the plain four-note chords instead.
 
 The app needs no server code and no build step. It runs as static files in
 a browser.
@@ -70,8 +70,8 @@ the next round, not the round in progress.
   the next chord appears right away. This one applies as soon as you
   change it, even mid-pause, not just on the next round.
 - **Include extensions/alterations**: on by default. Adds a 9th to every
-  chord, on top of the plain root, 3rd, 5th, and 7th. Turn it off to
-  practice plain four-note chords only.
+  chord, on top of its plain four-note shape. Turn it off to practice
+  plain four-note chords only.
 - **Elimination mode**: off by default. Turns on a fixed pool of every
   root/quality combination in your current settings. Passing a round
   removes that combination from the pool. Failing does not. The pool
