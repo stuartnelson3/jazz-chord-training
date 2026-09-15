@@ -1,0 +1,75 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: blog-deploy
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download dist
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+      - name: Checkout blog repo
+        uses: actions/checkout@v4
+        with:
+          repository: stuartnelson3/stuartnelson3.github.io
+          token: ${{ secrets.BLOG_DEPLOY_TOKEN }}
+          path: blog
+      - name: Sync dist into blog repo
+        # static/ is Hugo's source tree (publishDir=docs copies it verbatim on
+        # the next `hugo build`); docs/ is what GitHub Pages actually serves.
+        # Both must be updated so a future full Hugo rebuild doesn't diverge.
+        run: |
+          rm -rf blog/static/jazz-flash-chords blog/docs/jazz-flash-chords
+          mkdir -p blog/static/jazz-flash-chords blog/docs/jazz-flash-chords
+          cp -r dist/. blog/static/jazz-flash-chords/
+          cp -r dist/. blog/docs/jazz-flash-chords/
+      - name: Commit and push if changed
+        working-directory: blog
+        run: |
+          git config user.name "jazz-flash-chords-ci"
+          git config user.email "actions@users.noreply.github.com"
+          git add static/jazz-flash-chords docs/jazz-flash-chords
+          if git diff --cached --quiet; then
+            echo "no changes to deploy"
+            exit 0
+          fi
+          git commit -m "deploy jazz-flash-chords @ ${GITHUB_SHA}"
+          git push origin master
+
+  smoke-test:
+    needs: publish
+    runs-on: ubuntu-latest
+    steps:
+      # Cloudflare fronts stuartnelson.xyz with its own cache TTL, so a
+      # freshly pushed build may not be visible immediately.
+      - run: sleep 20
+      - name: Check the deployed page
+        run: |
+          body=$(curl -sf https://stuartnelson.xyz/jazz-flash-chords/)
+          echo "$body" | grep -q "<title>Jazz Flash Chords</title>"

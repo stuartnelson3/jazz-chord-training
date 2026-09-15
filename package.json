@@ -4,7 +4,8 @@
   "private": true,
   "description": "Jazz Flash Chords: a browser app for jazz chord ear training on saxophone",
   "scripts": {
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build": "rm -rf dist && mkdir -p dist && cp index.html style.css dist/ && cp -r src dist/"
   },
   "repository": {
     "type": "git",
