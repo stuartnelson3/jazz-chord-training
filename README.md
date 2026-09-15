@@ -9,9 +9,11 @@ By default, each chord also adds a 9th, natural or altered, on top of its
 plain four-note shape (root, 5th, 7th, and a 3rd — or a 4th for 7sus4).
 Turn that off in Settings to practice the plain four-note chords instead.
 
-A root with two common spellings shows both, for example "Bb/A#7". Only the
-root gets this treatment. The tone indicators and the Settings panel keep
-one name each.
+A root with two common spellings, for example Bb and A#, shows as either
+one. The app picks one at random each time. This way you practice
+reading and playing both spellings. The Settings panel's root checkboxes
+still show both names together, for example "Bb/A#". One checkbox covers
+both spellings in the random pool.
 
 The app needs no server code and no build step. It runs as static files in
 a browser.
@@ -83,10 +85,11 @@ the next round, not the round in progress.
   removes that combination from the pool. Failing does not. The pool
   refills once you clear it. While it is on, the game screen shows how
   many combinations are left.
-- **Chord qualities**: which seventh-chord types feed the random pool
-  (maj7, dom7, m7, m7b5, 7sus4). When extensions are on: maj7, m7, and
-  m7b5 always get a natural 9th; dom7 picks at random from 9, b9, or #9;
-  7sus4 picks at random from 9 or b9.
+- **Chord qualities**: which seventh-chord types feed the random pool —
+  major 7 (Δ7), dominant 7 (7), minor 7 (-7), half-diminished (ø7), and
+  sus4 (7sus4). When extensions are on, Δ7, -7, and ø7 always get a
+  natural 9th. The dominant 7 picks at random from 9, b9, or #9. 7sus4
+  picks at random from 9 or b9.
 - **Roots**: which root notes feed the random pool.
 
 Each checkbox group needs at least one checked box. The app blocks a
