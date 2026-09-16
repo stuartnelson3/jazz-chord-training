@@ -50,6 +50,12 @@ lights up its tone indicator. A round passes when you play every chord
 tone before the timer runs out. A round fails when the timer runs out
 first.
 
+Green marks each correct note as you play it. A full pass turns those
+circles, and the result banner, blue. A fail with no wrong notes along
+the way shows amber instead of red. The result screen calls it "on the
+right track", since running out of time is not the same as playing a
+wrong note.
+
 A wrong note does not fail the round on its own, and it does not undo a
 tone you already hit. But it still shows up if you hold one long enough
 for the app to register it. The result screen then adds a separate note,
