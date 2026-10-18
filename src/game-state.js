@@ -1,5 +1,5 @@
 import { generateChord, randomChord } from './chords.js';
-import { yinPitchDetect, frequencyToPitchClass, rms } from './pitch-detect.js';
+import { yinPitchDetect, frequencyToPitchClass, centsOff, rms } from './pitch-detect.js';
 
 /** @typedef {import('./chords.js').QualityKey} QualityKey */
 /** @typedef {import('./chords.js').Instrument} Instrument */
@@ -31,6 +31,12 @@ import { yinPitchDetect, frequencyToPitchClass, rms } from './pitch-detect.js';
 const PREROLL_MS = 1000;
 const MIN_CONSECUTIVE = 3;
 const RMS_THRESHOLD = 0.01; // gate out silence/noise before running YIN
+// A frame must land within this many cents of a note to count as that
+// note. Plain rounding gives each note ±50 cents, so neighbors (B and C,
+// b9 and root) meet at one shared edge and a slightly sharp or flat note
+// can flicker into its neighbor. Under 50 leaves a dead zone between
+// neighbors that matches neither.
+const CENTS_TOLERANCE = 10;
 
 /**
  * @param {number[]} rootPool
@@ -267,12 +273,17 @@ export class GameState {
   // A pitch class only counts — as a hit or as a confirmed wrong note —
   // once it is sustained for MIN_CONSECUTIVE frames in a row. That debounce
   // applies equally to both, so a stray transient can misfire as a wrong
-  // note no more easily than it could misfire as a hit.
+  // note no more easily than it could misfire as a hit. A frame in the
+  // dead zone between two notes (see CENTS_TOLERANCE) breaks the streak.
   /**
    * @param {Chord} chord
    * @param {number} detectedFrequency
    */
   _checkPitch(chord, detectedFrequency) {
+    if (Math.abs(centsOff(detectedFrequency)) > CENTS_TOLERANCE) {
+      this.consecutiveMatches = { lastPc: null, count: 0 };
+      return;
+    }
     const pc = frequencyToPitchClass(detectedFrequency);
     if (this.consecutiveMatches.lastPc === pc) {
       this.consecutiveMatches.count++;

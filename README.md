@@ -126,7 +126,7 @@ npm run typecheck
 
 ## Tuning pitch detection
 
-Three constants in `src/game-state.js` control how forgiving the match is:
+Four constants in `src/game-state.js` control how forgiving the match is:
 
 - **`RMS_THRESHOLD`**: the volume floor a frame must clear before the app
   runs pitch detection on it. Raise it to ignore quiet breath noise. Lower
@@ -134,6 +134,12 @@ Three constants in `src/game-state.js` control how forgiving the match is:
 - **`MIN_CONSECUTIVE`**: the number of matching frames in a row needed to
   count a note as a hit. Raise it to cut false positives from reed noise.
   Lower it for a faster response.
+- **`CENTS_TOLERANCE`**: how far, in cents, a frame can be from a note and
+  still count as that note. The default is 10, the same window a tuner
+  shows as in tune. It must stay below 50, so that a gap is left between
+  neighboring notes, for example the maj7 and the root. Lower it to need
+  better intonation. Raise it if in-tune notes do not register, for
+  example with wide vibrato.
 - **YIN threshold** (in `src/pitch-detect.js`, passed to
   `yinPitchDetect`): lower it for a stricter pitch match.
 
